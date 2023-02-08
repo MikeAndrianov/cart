@@ -1,0 +1,10 @@
+<div class="col-sm mb-4">
+  <div id="<%= dom_id product %>" class="card" style="width: 18rem;">
+    <h1 class="display-1 text-center"><%= product.img %></h1>
+    <div class="card-body">
+      <h5 class="card-title"><%= product.name %> <small class="text-secondary"><%= product.code %></small></h5>
+      <p class="card-text"><%= number_to_currency(product.price, unit: "€") %></p>
+      <a href="#" class="btn btn-outline-secondary">Add to cart</a>
+    </div>
+  </div>
+</div>
