@@ -1,0 +1,13 @@
+<h1 class="my-4">Your cart</h1>
+
+<ul id="cart-items" class="list-group list-group-flush">
+  <%= render partial: "carts/cart_item", collection: @cart_items %>
+</ul>
+
+<div class="d-flex flex-row-reverse align-items-center">
+  <h3 id="total" class="my-5"> Total
+    <%= turbo_frame_tag "cart_total" do %>
+      <%= @cart.total_price %>
+    <% end %>
+  </h3>
+</div>

@@ -1,0 +1,8 @@
+<small class="navbar-text">
+  <%= link_to cart_path, class: "navbar-brand" do %>
+    🛍
+    <%= turbo_frame_tag "cart_total_header" do %>
+      <%= cart.total_price %>
+    <% end %>
+  <% end %>
+</small>

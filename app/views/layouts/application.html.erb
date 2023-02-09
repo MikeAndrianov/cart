@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= render partial: "shared/nav", locals: { cart: @cart } %>
     <div class="container">
       <%= yield %>
     </div>

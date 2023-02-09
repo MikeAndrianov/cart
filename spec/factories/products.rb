@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :product do
-    code { 'GR1' }
+    sequence(:code) { |n| "GR#{n}" }
     name { 'Green Tea' }
     img { '🍵' }
     price { 3.11 }

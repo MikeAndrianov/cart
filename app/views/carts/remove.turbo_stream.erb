@@ -1,0 +1,9 @@
+<%= turbo_stream.update 'cart_total_header', @cart.total_price %>
+
+<%= turbo_stream.update 'cart_total', @cart.total_price %>
+
+<% if @cart_item.destroyed? %>
+  <%= turbo_stream.remove "cart_item_#{@cart_item.id}" %>
+<% else %>
+  <%= turbo_stream.replace "cart_item_#{@cart_item.id}", partial: 'carts/cart_item', locals: { cart_item: @cart_item } %>
+<% end %>

@@ -1,0 +1,5 @@
+<nav class="navbar navbar-light bg-light px-4">
+  <%= link_to "Shop", root_path, class: "navbar-brand" %>
+
+  <%= render partial: "shared/cart", locals: { cart: cart } %>
+</nav>
