@@ -2,11 +2,18 @@ require 'rails_helper'
 
 RSpec.describe CartItem, type: :model do
   describe '#total' do
-    it 'calculates based on quantity' do
-      product = create(:product, price: 2)
-      cart_item = create(:cart_item, product: product, quantity: 4)
+    let(:cart_item) { build(:cart_item) }
+    let(:price_calculator_instance) { instance_double(PriceCalculator) }
 
-      expect(cart_item.total).to eq(8)
+    before do
+      allow(PriceCalculator).to receive(:new).and_return(price_calculator_instance)
+      allow(price_calculator_instance).to receive(:perform)
+   end
+
+    it 'triggers price calculator' do
+      cart_item.total
+
+      expect(price_calculator_instance).to have_received(:perform)
     end
   end
 end

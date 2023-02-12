@@ -1,0 +1,25 @@
+<div id="<%= dom_id offer %>">
+  <p>
+    <div>
+      <%= link_to offer.name, edit_admin_offer_path(offer) %>
+    </div>
+
+    <div>
+      <strong>Description:</strong>
+      <%= offer.description %>
+    </div>
+
+    <div>
+      <strong>Rules:</strong>
+      <%= offer.rules %>
+    </div>
+
+    <div>
+      <strong>Products:</strong>
+      <%= offer.products.map { |p| "#{p.img}#{p.name}" }.join(', ') %>
+    </div>
+  </p>
+
+  <%= link_to 'Destroy', admin_offer_path(offer), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+  <hr />
+</div>

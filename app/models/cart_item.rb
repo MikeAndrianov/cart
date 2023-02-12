@@ -5,6 +5,6 @@ class CartItem < ApplicationRecord
   delegate :img, :name, :code, :price, to: :product, prefix: true
 
   def total
-    product_price * quantity
+    PriceCalculator.new(self).perform
   end
 end

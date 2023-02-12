@@ -4,4 +4,6 @@ class Product < ApplicationRecord
 
   has_many :cart_items
   has_many :shopping_carts, through: :cart_items
+  has_many :product_offers
+  has_many :offers, through: :product_offers
 end

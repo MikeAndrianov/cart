@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def set_cart
     @cart ||=
       ShoppingCart
-        .includes(cart_items: :product)
+        .includes(cart_items: {product: :offers})
         .find_by(id: session[:cart_id])
         &.then { |cart| CartDecorator.new(cart) }
 

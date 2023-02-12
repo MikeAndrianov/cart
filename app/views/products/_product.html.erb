@@ -3,8 +3,15 @@
     <h1 class="display-1 text-center"><%= product.img %></h1>
     <div class="card-body">
       <h5 class="card-title"><%= product.name %> <small class="text-secondary"><%= product.code %></small></h5>
-      <p class="card-text"><%= number_to_currency(product.price, unit: "€") %></p>
+      <p class="card-text">
+        <%= product.price %>
 
+        <% if product.has_offers? %>
+          <span class="badge text-bg-danger">
+            <%= content_tag :abbr, 'Offer!', title: product.offer_details %>
+          </span>
+        <% end %>
+      </p>
       <%= button_to "Add to cart", add_cart_path, method: :post, params: { product_id: product.id }, class: "btn btn-outline-secondary" %>
     </div>
   </div>

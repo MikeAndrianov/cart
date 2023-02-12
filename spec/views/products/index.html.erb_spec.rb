@@ -3,19 +3,23 @@ require 'rails_helper'
 RSpec.describe 'products/index', type: :view do
   before(:each) do
     assign(:products, [
-      create(
-        :product,
-        name: 'Name',
-        code: 'GR1',
-        price: 9.99,
-        img: '🍵'
+      ProductDecorator.new(
+        create(
+          :product,
+          name: 'Name',
+          code: 'GR1',
+          price: 9.99,
+          img: '🍵'
+        )
       ),
-      create(
-        :product,
-        name: 'Name',
-        code: 'EQ2',
-        price: 9.99,
-        img: '☕️'
+      ProductDecorator.new(
+        create(
+          :product,
+          name: 'Name',
+          code: 'EQ2',
+          price: 9.99,
+          img: '☕️'
+        )
       )
     ])
   end

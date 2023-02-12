@@ -1,13 +1,25 @@
 class CartItemDecorator < SimpleDelegator
-  include ActionView::Helpers::NumberHelper
-
-  DEFAULT_UNIT = '€'.freeze
+  include PriceDecoratable
 
   def price
-    number_to_currency(product_price, unit: DEFAULT_UNIT)
+    decorate_price(product_price)
   end
 
   def total_price
-    number_to_currency(total, unit: DEFAULT_UNIT)
+    decorate_price(total)
+  end
+
+  def offers_applied?
+    initial_price != total
+  end
+
+  def initial_total_price
+    decorate_price(initial_price)
+  end
+
+  private
+
+  def initial_price
+    product_price * quantity
   end
 end
