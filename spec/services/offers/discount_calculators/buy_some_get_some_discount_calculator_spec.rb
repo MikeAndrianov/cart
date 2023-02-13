@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Offers::BuySomeGetSomeDiscountCalculator, type: :service do
+RSpec.describe Offers::DiscountCalculators::BuySomeGetSomeDiscountCalculator, type: :service do
   describe '#perform' do
     subject { described_class.new(cart_item, rules).perform }
 

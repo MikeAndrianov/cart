@@ -5,9 +5,9 @@ module Offers
 
       case price_drop_type
       when 'percentage'
-        PercentageDiscountCalculator
+        DiscountCalculators::PercentageDiscountCalculator
       when 'fixed'
-        FixedDiscountCalculator
+        DiscountCalculators::FixedDiscountCalculator
       else
         Rails.logger.error("Invalid price_drop_type: #{price_drop_type}")
       end

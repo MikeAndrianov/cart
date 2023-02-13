@@ -5,7 +5,7 @@ module Offers
 
       case type
       when 'buy_some_get_some'
-        BuySomeGetSomeDiscountCalculator
+        DiscountCalculators::BuySomeGetSomeDiscountCalculator
       when 'bulk_purchase'
         BulkPurchaseFactory.build(rules)
       else
